@@ -65,6 +65,7 @@ span {
     display: inline-block;
     width: 100px;
     height: 30px;
+    line-height: 30px;
     background: #CCCCCC;
     border: 1px solid #555555;
 }
@@ -100,9 +101,12 @@ span {
     border-color: transparent transparent transparent #000;
 }
 .triangle-left{
+    border-right: transparent;
+    border-left: 1px solid #000;
     float: left;
 }
 .triangle-left em {
+    margin-right: 10px;
     display: inline-block;
     width: 0;
     height: 0;

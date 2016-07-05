@@ -24,10 +24,15 @@ $(function() {
             //         /* 请求错误 */
             //     });
             // })
+            //获取当前电脑时间
+            var mydate = new Date();
+            var year =mydate.getFullYear(),
+                month= mydate.getMonth()+1,
+                day= mydate.getDate();
             /*静态数据模拟*/
-            var year = 2016;
-            var month = 7;
-            var day = 4;
+            //var year = 2016;
+            //var month = 7;
+            //var day = 4;
             $("#vali_length_time").html(year);
             startClc(year, month, day)
         }
@@ -259,6 +264,8 @@ $(function() {
             } else if (selectY == year) {
                 $("table tbody tr:lt(" + (month - 1) + ")").find('td').addClass("disabled cur");
                 $("table tbody tr:lt(" + month + ")").find("td:lt(" + day + ")").addClass("disabled cur");
+            }else if(selectY > year){
+                $("table tbody tr td").removeClass("disabled already")
             }
         }
     })($)
