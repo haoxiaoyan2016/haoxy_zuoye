@@ -1,0 +1,188 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.fix {
+    *zoom: 1;
+}
+
+.fix:after {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#schedule {
+    display: none;
+    margin: 20px auto;
+    width: 1201px;
+}
+
+span {
+    padding-left: 15px;
+    margin: 10px auto;
+    width: 100%;
+    height: 30px;
+    line-height:27px;
+    text-align: left;
+
+}
+/*����*/
+.switch{
+    margin: 50px;
+    display: inline-block;
+    width: 30px;
+    height: 33px;
+    background: url("../images/1.png")no-repeat;
+    cursor: pointer;
+}
+
+/*ͷ����ʽ*/
+.fist_row{
+    margin-top: 20px;
+}
+.header, .footer, ul li {
+    margin: 10px 0;
+}
+
+.first_line,.footer span:nth-child(1){
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #dddddd;
+}
+
+.year {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: #CCCCCC;
+    border: 1px solid #555555;
+}
+
+.year_left {
+    float: left;
+}
+
+.date_ {
+    float: right;
+}
+
+.triangle {
+    float: right;
+    height: 30px;
+    line-height: 35px;
+    width: 20px;
+    text-align: right;
+    background: #CCCCCC;
+    border: 1px solid #000;
+    border-left: transparent;
+    cursor: pointer;
+}
+.input-group-addon{
+    padding-left: 0;
+}
+
+.triangle-right em {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 8px solid;
+    border-color: transparent transparent transparent #000;
+}
+.triangle-left{
+    float: left;
+}
+.triangle-left em {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 8px solid;
+    border-color: transparent #000 transparent transparent;
+}
+.header span:nth-child(2) {
+    color: #666666;
+}
+
+i {
+    width: 15px;
+    height: 15px;
+    background: #dedede;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.date_ li:nth-child(2) i:nth-child(1) {
+    background: white;
+    border: dashed 1px #DCDADA;
+}
+
+.date_ li:nth-child(3) i:nth-child(1) {
+    background: #c3c3c3;
+}
+
+.date_ li:nth-child(4) i:nth-child(1) {
+    background: #555555;
+}
+
+ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+/*�ײ���ʽ*/
+.footer span:nth-child(1) {
+    display: inline-block;
+    color: #cc0000;
+}
+.btn input{
+    width: 120px;
+    height: 40px;
+    margin:10px;
+    padding:0;
+    background:none;
+    list-style-type:none;
+    border:1px solid #555555;
+}
+.btn{
+    text-align: center;
+}
+
+/*�м���������ʽ*/
+.first_column {
+    width: 50px;
+}
+/*����ѡ����*/
+.disabled{
+    background:#dedede;
+}
+/*��ռ������*/
+.already{
+    background: #c3c3c3
+}
+/*��ռ������*/
+.my_disabled{
+    background:#555555;
+}
+td{
+    display: inline-block;
+    width: 35px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+table tr:not(.f1){
+    border-bottom:1px dashed #555555;
+}
+
+
