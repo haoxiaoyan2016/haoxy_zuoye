@@ -24,15 +24,10 @@ $(function() {
             //         /* 请求错误 */
             //     });
             // })
-            //获取当前电脑时间
-            var mydate = new Date();
-            var year =mydate.getFullYear(),
-                month= mydate.getMonth()+1,
-                day= mydate.getDate();
             /*静态数据模拟*/
-            //var year = 2016;
-            //var month = 7;
-            //var day = 4;
+            var year = 2016;
+            var month = 7;
+            var day = 4;
             $("#vali_length_time").html(year);
             startClc(year, month, day)
         }
@@ -61,11 +56,12 @@ $(function() {
             $(".triangle-right").on("click", function() {
                 var value = $("#vali_length_time").html();
                 $("#vali_length_time").html(++value);
+                var newYear = $("#vali_length_time").html();
                 if (value > year) {
                     $(".triangle-left").css("display", "block");
                 }
                 /*下一年排期渲染*/
-                render(schedule, year, month, day)
+                render(schedule,year, month, day, newYear)
             });
 
 
@@ -73,13 +69,14 @@ $(function() {
             $(".triangle-left").on("click", function() {
                 var value = $("#vali_length_time").html();
                 $("#vali_length_time").html(--value);
+                var newYear = $("#vali_length_time").html();
                 if (value == year) {
                     $(this).css("display", "none");
-                    render(schedule, year, month, day) //目前为当前年份排期只执行一次
+                    render(schedule,year, month, day, newYear) //目前为当前年份排期只执行一次
                     return false
                 }
                 /*上一年排期渲染*/
-                render(schedule, year, month, day)
+                render(schedule,year, month, day, newYear)
             });
 
 
@@ -87,19 +84,19 @@ $(function() {
             $(".btn .sure").on("click", function() {
                 var newYear = $("#vali_length_time").html();
                 saveData[0] = newYear
-                    /*此处应该写ajax，，将savaData这个数组传递给后端*/
-                    /*数组console.log(saveData)结构是这样的
-                    [
-                        "2016",
-                        {
-                            day:4,
-                            month:7
-                        },
-                        {
-                            day:9,
-                            month:8
-                        },
-                    ]*/
+                /*此处应该写ajax，，将savaData这个数组传递给后端*/
+                /*数组console.log(saveData)结构是这样的
+                 [
+                 "2016",
+                 {
+                 day:4,
+                 month:7
+                 },
+                 {
+                 day:9,
+                 month:8
+                 },
+                 ]*/
                 console.log(saveData)
             })
 
@@ -113,14 +110,14 @@ $(function() {
         /*
          * 渲染方法
          */
-        function render(schedule, year, month, day) {
+        function render(schedule, year, month, day,newY) {
             $("#table tbody").remove()
-                // 创建表格一个12行，32列的tbody
+            // 创建表格一个12行，32列的tbody
             CreateTable(12, 32);
             // 显示整个结构
             schedule.show()
-                // 渲染结构里面的内容
-            pageDate(year, month, day)
+            // 渲染结构里面的内容
+            pageDate(year, month, day,newY)
         }
 
         /*
@@ -151,13 +148,13 @@ $(function() {
         /*
          * 请求当前年，排期的数据
          */
-        function pageDate(year, month, day) {
+        function pageDate(year, month, day,newY) {
             // 从数据库获取当前年份的数据
             // $.ajax({
             //     url: '/path/to/file',
             //     type: 'default GET (Other values: POST)',
             //     dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-            //     data: { y: year },
+            //     data: { y: newY },
             //     success: function(req) {
             //         bind(req)
             //     },
@@ -181,7 +178,7 @@ $(function() {
                 }
             };
             bind(req)
-            disabledSchedule(year, month, day)
+            disabledSchedule(year, month, day,newY)
         }
 
 
@@ -234,10 +231,10 @@ $(function() {
                     var trIndex_month = $(this).parent().index() + 1
                     var tdIndex_day = $(this).index()
                     var obj = {
-                            month: trIndex_month,
-                            day: tdIndex_day
-                        }
-                        //开关我得排期，并将排期序列到数组里
+                        month: trIndex_month,
+                        day: tdIndex_day
+                    }
+                    //开关我得排期，并将排期序列到数组里
                     if (!$(this).hasClass('flag')) {
                         $(this).addClass('flag my_disabled');
                         saveData.push(obj)
@@ -253,19 +250,34 @@ $(function() {
             });
         }
 
-
         /*
          * 判断当前日期前排期不可用
          */
-        function disabledSchedule(year, month, day) {
+        function disabledSchedule(year, month, day,newY) {
             var selectY = $("#vali_length_time").html();
             if (selectY < year) {
                 $("table tbody tr td").addClass("disabled cur")
             } else if (selectY == year) {
                 $("table tbody tr:lt(" + (month - 1) + ")").find('td').addClass("disabled cur");
                 $("table tbody tr:lt(" + month + ")").find("td:lt(" + day + ")").addClass("disabled cur");
-            }else if(selectY > year){
-                $("table tbody tr td").removeClass("disabled already")
+                $(".first_column").removeClass("disabled already")
+            }
+            /*排除没有31号的排期*/
+            var _month = ['2','4','6','9','11'];
+            for(var index in _month){
+                // console.log(_month[index])
+                $("table tbody tr:eq("+(_month[index]-1)+")").find('td:gt(30)').addClass("disabled cur");
+                console.log($("table tbody tr:eq("+(_month[index]-1)+")"))
+                if(_month[index] == 2){
+                    // 判断是闰年平年
+                    if((newY%4==0&&newY%100!=0)||(newY%400==0)) {
+                        // 闰年29
+                        $("table tbody tr:eq(1)").find('td:gt(29)').addClass("disabled cur");
+                    }else{
+                        //平年28
+                        $("table tbody tr:eq(1)").find('td:gt(28)').addClass("disabled cur");
+                    }
+                }
             }
         }
     })($)
