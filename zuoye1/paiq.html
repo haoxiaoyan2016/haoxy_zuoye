@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="css/paiqi.css"/>
+
+<body>
+<div class="switch"></div>
+
+<div id="schedule">
+    <div class="header fix">
+        <div class="first_line">
+            <span>选择排期</span>
+            <!-- <span>广告位名称</span> -->
+        </div>
+        <div class="fist_row">
+            <div class="input-group date year_left fix" id="datetimepicker">
+                <!-- <input type="text" class="form-control input-w200 year" id="vali_length_time" name="vali_length_time"
+                       value="2016" style="text-align: center"><div class="triangle"><em></em></div> -->
+                       <div class="triangle triangle-left" style="display:none;"><em></em></div>
+                       <div  class="form-control input-w200 year" id="vali_length_time" style="text-align: center"></div>
+                       <div class="triangle triangle-right"><em></em></div>
+            </div>
+            <ul class="date_ fix">
+                <li><i></i>不可选日期</li>
+                <li><i></i>可占用日期</li>
+                <li><i></i>已占用日期</li>
+                <li><i></i>我占用日期</li>
+
+            </ul>
+        </div>
+    </div>
+    <table width="1201" id="table" border="1" bordercolor="black" cellspacing="0">
+        <thead>
+        <tr class="f1">
+            <td class="first_column">月/日</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+        </tr>
+        </thead>
+        <!-- 动态渲染 tbody -->
+    </table>
+    <div class="footer">
+        <span>网络问题，请重试</span>
+        <div class="btn"><input type="button"  class="sure" value="确定"/><input type="button" class="cancel" value="取消"/></div>
+    </div>
+</div>
+
+<div class="information" style="width:1000px;margin: 0 auto">
+    <p>思维导图</p>
+    <img src="images/pq.png"style="width:800px" >
+    <img src="images/pq1.jpg"style="width:800px" >
+    <img src="images/pq2.png"style="width:800px" >
+    <img src="images/pq3.png"style="width:800px" >
+
+
+</div>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/paiqi.js" charset="UTF-8"></script>

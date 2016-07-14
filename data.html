@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间选择器</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfloat:after{
+            display:block;
+            clear:both;
+            content:"";
+            visibility:hidden;
+            height:0
+        }
+        .clearfloat{
+            zoom:1
+        }
+        /*以上是公共样式*/
+
+       .data{
+           margin: 20px auto;
+           width: 650px;
+           height: 100%;
+       }
+        select,span{
+            float: left;
+        }
+        span{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        select{
+            width: 150px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="data clearfloat">
+<div class="start_time">
+<select name="year" id="start_year" class="year ">
+    <option value="">请选择</option>
+    <option value="1">2010年</option>
+
+    <option value="2">2011年</option>
+
+    <option value="3">2012年</option>
+
+    <option value="4">2013年</option>
+
+    <option value="5">2014年</option>
+
+    <option value="6">2015年</option>
+
+    <option value="7">2016年</option>
+
+    <option value="8">2017年</option>
+
+    <option value="9">2018年</option>
+
+</select>
+<select name="day" id="start_day" class="day ">
+    <option value="">请选择</option>
+    <option value="1">1月</option>
+
+    <option value="2">2月</option>
+
+    <option value="3">3月</option>
+
+    <option value="4">4月</option>
+
+    <option value="5">5月</option>
+
+    <option value="6">6月</option>
+
+    <option value="7">7月</option>
+
+    <option value="8">8月</option>
+
+    <option value="9">9月</option>
+
+    <option value="9">10月</option>
+
+    <option value="9">11月</option>
+
+    <option value="9">12月</option>
+
+</select>
+</div>
+<span>到</span>
+<div class="end_time">
+    <select name="year" id="end_year" class="year ">
+        <option value="">请选择</option>
+        <option value="1">2010年</option>
+
+        <option value="2">2011年</option>
+
+        <option value="3">2012年</option>
+
+        <option value="4">2013年</option>
+
+        <option value="5">2014年</option>
+
+        <option value="6">2015年</option>
+
+        <option value="7">2016年</option>
+
+        <option value="8">2017年</option>
+
+        <option value="9">2018年</option>
+
+    </select>
+    <select name="day" id="end_day" class="day ">
+        <option value="">请选择</option>
+        <option value="1">1月</option>
+
+        <option value="2">2月</option>
+
+        <option value="3">3月</option>
+
+        <option value="4">4月</option>
+
+        <option value="5">5月</option>
+
+        <option value="6">6月</option>
+
+        <option value="7">7月</option>
+
+        <option value="8">8月</option>
+
+        <option value="9">9月</option>
+
+        <option value="9">10月</option>
+
+        <option value="9">11月</option>
+
+        <option value="9">12月</option>
+
+    </select>
+</div>
+</div>
+</body>
+</html>
+<script src="http://192.168.56.91/base/seajs/2.3.0/sea.js"></script>
+<script>
+    // Set configuration
+    seajs.config({
+        base: "http://bigstatic.bitautoimg.com/",
+        alias: {
+            "jquery": "base/jquery/1.11.2/jquery.js"
+        },
+        map: [[/^(.*\.(?:css|js))(.*)$/i, '$1?v=2016011817300015']]
+    });
+    seajs.use("http://192.168.56.91/apps/operate-admin/js/pages/admins/main");
+    </script>

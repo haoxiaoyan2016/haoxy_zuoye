@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .row{
+        border: 1px solid #555555;
+    }
+    .col-md-1{
+        border: 1px solid #0000FF;
+    }
+    .col-md-4{
+        border: 1px solid #008000;
+    }
+    .col-md-6{
+        border:1px solid #6D84B4;
+        background: red;
+    }
+    .col-md-8{
+        background: yellow  ;
+    }
+    .col-xs-6{
+        border: 1px dashed greenyellow;
+    }
+    .col-xs-9{
+        border: 1px solid #6D84B4;
+    }
+    .col-xs-4{
+        border: 1px solid #00FFFF;
+    }
+    .col-xs-3{
+        background: thistle;
+    }
+    .col-sm-6{
+        border: 1px solid #FFE0E9;
+    }
+    .col-sm-9{
+        border: 1px solid palevioletred;
+    }
+
+</style>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<body>
+<div class="container">
+<h3>.container 类用于固定宽度并支持响应式布局的容器。</h3>
+
+<div class="row">
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+
+</div>
+<div class="row">
+    <div class="col-md-8">.col-md-8</div>
+    <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+    <div class="col-md-6">.col-md-6</div>
+    <div class="col-md-6">.col-md-6</div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<h3>.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器</h3>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row">
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+<div class="row">
+    <div class="col-xs-6">.col-xs-6</div>
+    <div class="col-xs-6">.col-xs-6</div>
+</div>
+</div>
+<br/>
+<br/>
+<div class="container">
+<h3>如果在一个 .row 内包含的列（column）大于12个，包含多余列（column）的元素将作为一个整体单元被另起一行排列。</h3>
+<div class="row">
+    <div class="col-xs-9">.col-xs-9</div>
+    <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.jfk sdhs ddfs kbf sdf jhnjff sbs</div>
+    <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+    <div class="col-xs-9">col-xs-9</div>
+    <div class="col-xs-3">col-xs-3</div>
+</div>
+<br/><br/><br/>
+
+<h3>列偏移  使用 .col-md-offset-* 类可以将列向右侧偏移。这些类实际是通过使用 * 选择器为当前元素增加了左侧的边距（margin）。例如，.col-md-offset-4 类将 .col-md-4 元素向右侧偏移了4个列（column）的宽度。</h3>
+<br/>
+<div class="container">
+<div class="row">
+    <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+    <!-- Add the extra clearfix for only the required viewport -->
+    <div class="clearfix visible-xs-block"></div>
+
+    <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-md-1 col-sm-offset-11">col-md-1</div>
+    <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+    <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+    <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0">.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0</div>
+</div>
+</div>
+<br/><br/><br/>
+<h3>嵌套列
+    为了使用内置的栅格系统将内容再次嵌套，可以通过添加一个新的 .row 元素和一系列 .col-sm-* 元素到已经存在的 .col-sm-* 元素内。被嵌套的行（row）所包含的列（column）的个数不能超过12（其实，没有要求你必须占满12列）。</h3>
+
+<div class="container-fluid">
+
+</div>
+
+<div class="row">
+    <div class="col-sm-9">
+        Level 1: .col-sm-9
+        <div class="row">
+            <div class="col-xs-8 col-sm-6">
+                Level 2: .col-xs-8 .col-sm-6
+            </div>
+            <div class="col-xs-4 col-sm-6">
+                Level 2: .col-xs-4 .col-sm-6
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-sm-6">
+            Level 2: .col-xs-8 .col-sm-6
+        </div>
+        <div class="col-xs-4 col-sm-6">
+            Level 2: .col-xs-4 .col-sm-6
+        </div>
+     </div>
+</div>
+<br/><br/>
+<table class="table table-bordered">
+    <tr class="active">...</tr>
+    <tr class="success">...</tr>
+    <tr class="warning">...</tr>
+    <tr class="danger">...</tr>
+    <tr class="info">...</tr>
+
+    <!-- On cells (`td` or `th`) -->
+    <tr>
+        <td class="active">...</td>
+        <td class="success">...</td>
+        <td class="warning">...</td>
+        <td class="danger">...</td>
+        <td class="info">...</td>
+    </tr>
+</table>
+
+<br/><br/>
+<h3>表单
+    单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 </input>、</textarea> 和 </select/> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。</h3>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Check me out
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    <br/>
+    <br/>
+
+
+
+
+
+</div>
+</body>
+</html>

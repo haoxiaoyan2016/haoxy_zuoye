@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input" type="button" value="点击这里显示this" />
+</body>
+</html>
+<script type="text/javascript">
+//全局环境中的this
+//在全局环境中，this 指向全局对象Global，即 window 对象。例如：
+   alert(this);  // 显示 [object Window]
+   alert(this === window);  // 显示 true
+
+//绑定事件处理中的this
+//    在事件处理函数中，this 指向当前节点，即绑定事件的节点。
+//    在DOM元素中直接绑定事件，例如：
+var input=document.getElementById("input");
+input.onclick=function(){
+    alert(this);//<!-- 显示 [object HTMLInputElement] -->
+};
+
+//构造函数中的this
+//在构造函数中，this 指向被创建的对象。
+var user = "xiaoming";
+function xuexiao(user){
+    this.name = "学校";
+    this.domain = "www.xuexiao.org";
+    this.user = user;
+    this.showUser = function(){
+        alert(this.user);
+    }
+}
+var zhangsan = new xuexiao("zhangsan");
+zhangsan.showUser();  // 显示"zhangsan"
+var wangming = new xuexiao("wangming");
+wangming.showUser();  // 显示 wangming
+
+</script>
